@@ -1,0 +1,295 @@
+<html>
+
+<head>
+    <title>Huellas de esperanza- Adopta</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="dona.css" />
+</head>
+
+
+<body>
+    <section class="logo">
+        <img src="Imagenes/logo.png" width="180" height="150" alt="" />
+    </section>
+    <nav>
+        <nav class="navMenu">
+            <a href="index.html">Inicio</a>
+            <a href="#">Visita</a>
+            <a href="#">cita</a>
+            <a href="adopta.html">Adopta</a>
+            <a href="#">Apadrina</a>
+            <div class="dot"></div>
+        </nav>
+    </nav>
+
+    <section class="carrusel">
+        <div class="carousel">
+            <div class="slides">
+                <img src="imagenes/dona1.png" alt="Stainless Steel" />
+                <img src="imagenes/dona2.png" alt="Army Green" />
+                <img src="imagenes/dona3.png" alt="Cranberry" />
+                <img src="imagenes/dona4.png" alt="Midnight Blue" />
+            </div>
+            <div class="overlays">
+                <div class="bar" style="--bar-color: #bdc3c7;"></div>
+                <div class="bar" style="--bar-color: #218c74;"></div>
+                <div class="bar" style="--bar-color: #dd6b7b;"></div>
+                <div class="bar" style="--bar-color: #30465c;"></div>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#" class="nav-link">Donar alimento</a></li>
+                <li><a href="#" class="nav-link">Donar Dinero</a></li>
+                <li><a href="#" class="nav-link">Apadrinar peludo</a></li>
+                <li><a href="#" class="nav-link">Donar Acesorios</a></li>
+            </ul>
+
+            <script>
+                let navLinks = document.querySelectorAll(".carousel .nav-links .nav-link");
+                let slides = document.querySelectorAll(".carousel .slides img");
+                let overlays = document.querySelectorAll(".carousel .overlays .bar");
+                let maxZIndex = navLinks.length;
+                let easeInOutQuart = "cubic-bezier(0.77, 0, 0.175, 1)";
+                slides[0].classList.add("active");
+                navLinks[0].classList.add("active");
+                navLinks.forEach((navLink, activeIndex) => {
+                    overlays[activeIndex].style.zIndex = `${navLinks.length - activeIndex}`;
+                    navLink.addEventListener("click", () => {
+                        // nav-link
+                        navLinks.forEach(navLink => navLink.classList.remove("active"));
+                        navLink.classList.add("active");
+                        // slide
+                        let currentSlide = document.querySelector(".carousel .slides img.active");
+                        let slideFadeOut = currentSlide.animate(
+                            [{
+                                transform: "translateX(0)",
+                                opacity: 1
+                            }, {
+                                transform: "translateX(5%)",
+                                opacity: 0
+                            }], {
+                                duration: 600,
+                                easing: "ease-in",
+                                fill: "forwards"
+                            }
+                        );
+                        slideFadeOut.onfinish = () => {
+                            slides.forEach(slide => slide.classList.remove("active"));
+                            let activeSlide = slides[activeIndex];
+                            activeSlide.classList.add("active");
+                            activeSlide.animate(
+                                [{
+                                    transform: "translateX(-5%)",
+                                    opacity: 0
+                                }, {
+                                    transform: "translateX(0)",
+                                    opacity: 1
+                                }], {
+                                    duration: 600,
+                                    easing: "ease-out",
+                                    fill: "forwards"
+                                }
+                            );
+                        };
+                        // overlay
+                        maxZIndex += 1;
+                        let activeOverlay = overlays[activeIndex];
+                        activeOverlay.style.zIndex = `${maxZIndex}`;
+                        activeOverlay.animate(
+                            [{
+                                transform: "scaleX(0)"
+                            }, {
+                                transform: "scaleX(1)"
+                            }], {
+                                duration: 1200,
+                                fill: "forwards",
+                                easing: easeInOutQuart
+                            }
+                        );
+                    });
+                });
+            </script>
+        </div>
+    </section>
+
+    <section>
+        <h1>Formas de donacion</h1>
+
+        <h2>Alimento - Cachorro</h2>
+        <div class="container">
+            <a href="metododepago.html">
+                <div class="box">
+                    <img src="imagenes/cachorro1.jpg">
+                    <span>Donar 2 kilos</span>
+                </div>
+            </a>
+
+            <a href="metododepago.html">
+                <div class="box">
+                    <img src="imagenes/cachorro1.jpg">
+                    <span>Donar 5 kilos</span>
+                </div>
+            </a>
+
+            <a href="metododepago.html">
+                <div class="box">
+                    <img src="imagenes/cachorro1.jpg">
+                    <span>Donar 10 Kilos</span>
+                </div>
+            </a>
+
+            <a href="metododepago.html">
+                <div class="box">
+                    <img src="imagenes/cachorro1.jpg">
+                    <span>Donar 20 kilos</span>
+                </div>
+            </a>
+        </div>
+
+        <h2>Alimento - Adultos</h2>
+        <div class="container">
+            <a href="metododepago.html">
+                <div class="box">
+                    <img src="imagenes/Adulto1.jpg">
+                    <span>Donar 2 kilos</span>
+                </div>
+            </a>
+
+            <a href="metododepago.html">
+                <div class="box">
+                    <img src="imagenes/Adulto1.jpg">
+                    <span>Donar 5 kilos</span>
+                </div>
+            </a>
+
+            <a href="metododepago.html">
+                <div class="box">
+                    <img src="imagenes/Adulto1.jpg">
+                    <span>Donar 10 kilos</span>
+                </div>
+            </a>
+
+            <a href="metododepago.html">
+                <div class="box">
+                    <img src="imagenes/Adulto1.jpg">
+                    <span>Donar 20 kilos</span>
+                </div>
+            </a>
+        </div>
+
+        <h2>Dinero</h2>
+        <div class="container">
+            <a href="metododepago.html">
+                <div class="box">
+                    <img src="imagenes/dinero1.png">
+                    <span>Donar $20.000</span>
+                </div>
+            </a>
+
+            <a href="metododepago.html">
+                <div class="box">
+                    <img src="imagenes/dinero1.png">
+                    <span>Donar $50.000</span>
+                </div>
+            </a>
+
+            <a href="metododepago.html">
+                <div class="box">
+                    <img src="imagenes/dinero1.png">
+                    <span>Donar $100.000</span>
+                </div>
+            </a>
+
+            <a href="metododepago.html">
+                <div class="box">
+                    <img src="imagenes/dinero1.png">
+                    <span>Donar 200.000</span>
+                </div>
+            </a>
+        </div>
+
+
+        <h2>Apadrina un peludo</h2>
+        <div class="container">
+            <a href="metododepago.html">
+                <div class="box">
+                    <img src="imagenes/apadrina.jpg">
+                    <span>Donar $20.000</span>
+                </div>
+            </a>
+
+            <a href="metododepago.html">
+                <div class="box">
+                    <img src="imagenes/apadrina.jpg">
+                    <span>Donar $50.000</span>
+                </div>
+            </a>
+
+            <a href="metododepago.html">
+                <div class="box">
+                    <img src="imagenes/apadrina.jpg">
+                    <span>Donar $100.000</span>
+                </div>
+            </a>
+
+            <a href="metododepago.html">
+                <div class="box">
+                    <img src="imagenes/apadrina.jpg">
+                    <span>Donar 200.000</span>
+                </div>
+            </a>
+        </div>
+
+        <h2>Apadrina un peludo</h2>
+        <div class="container">
+            <a href="metododepago.html">
+                <div class="box">
+                    <img src="imagenes/juguetes.jpg">
+                    <span>Donar $20.000</span>
+                </div>
+            </a>
+
+            <a href="metododepago.html">
+                <div class="box">
+                    <img src="imagenes/juguetes.jpg">
+                    <span>Donar $50.000</span>
+                </div>
+            </a>
+            <a href="metododepago.html">
+                <div class="box">
+                    <img src="imagenes/juguetes.jpg">
+                    <span>Donar $100.000</span>
+                </div>
+            </a>
+
+            <a href="metododepago.html">
+                <div class="box">
+                    <img src="imagenes/juguetes.jpg">
+                    <span>Donar 200.000</span>
+                </div>
+            </a>
+        </div>
+    </section>
+
+    <section>
+        <h2>Otro valor</h2>
+        <li class="donar">
+            <a href="metododepago.html"> <button class="button-cover" role="button">
+                <span class="text">Donar con Nequi</span>
+                <span>Guauuf!</span></button></a>
+
+            <a href="metododepago.html"><button class="button-cover" role="button">
+                    <span class="text">Donar con Banco Bogota</span>
+                    <span>Guauuf!</span></button></a>
+
+            <a href="metododepago.html"><button class="button-cover" role="button">
+                    <span class="text">Donar con Bancolombia</span>
+                    <span>Guauuf!</span></button></a>
+
+            <a href="metododepago.html"><button class="button-cover" role="button">
+                    <span class="text">Donar con Bancolombia</span>
+                    <span>Guauuf!</span></button></a>
+        </li>
+    </section>
+</body>
+
+<html>

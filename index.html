@@ -1,0 +1,227 @@
+<head>
+    <title>Huellas de esperanza</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="inicio.css" />
+</head>
+
+<body>
+    <section id="container-slider">
+        <a href="javascript: fntExecuteSlide('prev');" class="arrowPrev"><i class="fas fa-chevron-circle-left"></i></a>
+        <a href="javascript: fntExecuteSlide('next');" class="arrowNext"><i class="fas fa-chevron-circle-right"></i></a>
+        <ul class="listslider">
+            <li>
+                <a itlist="itList_0" href="#" class="item-select-slid"></a>
+            </li>
+            <li>
+                <a itlist="itList_1" href="#"></a>
+            </li>
+            <li>
+                <a itlist="itList_2" href="#"></a>
+            </li>
+        </ul>
+        <ul id="slider">
+            <li style="background-image: url('imagenes/carrusel\ 1.jpg'); z-index:0; opacity: 1;">
+                <div class="content_slider">
+                    <div>
+                        <h2>¿Tienes planeado adoptar un peludo en tu familia?</h2>
+                        <p>Descubra que requisitos debe cumplir y que peludo robara tu corazon</p>
+                        <a href="adopta.html" class="btnSlider">Ver más</a>
+                    </div>
+                </div>
+            </li>
+            <li style="background-image: url('imagenes/carrusel\ 2.jpg'); ">
+                <div class="content_slider">
+                    <div>
+                        <h2>Te gustaria donar recursos, alimento o mas</h2>
+                        <p>Si no puedes tener un peludo en casa una de las mejores maneras en las que puedes ayudar es convirtiendote en un donador ¿Te interesa?</p>
+                        <a href="dona.html" class="btnSlider">Ver más</a>
+                    </div>
+                </div>
+            </li>
+            <li style="background-image: url('imagenes/carrusel\ 3.jpg'); ">
+                <div class="content_slider">
+                    <div>
+                        <h2>Tu mascota necesita cuidados</h2>
+                        <p>Aqui puedes acceder a servicios como veterinaria, peluqueria entre otros</p>
+                        <a href="error404.html" class="btnSlider">Ver más</a>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </section>
+    <script defer="" src="./Slider_files/all.js.descarga"></script>
+    <script type="text/javascript">
+        if (document.querySelector('#container-slider')) {
+            setInterval('fntExecuteSlide("next")', 5000);
+        }
+
+        //------------------------------ LIST SLIDER -------------------------
+        if (document.querySelector('.listslider')) {
+            let link = document.querySelectorAll(".listslider li a");
+            link.forEach(function(link) {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    let item = this.getAttribute('itlist');
+                    let arrItem = item.split("_");
+                    fntExecuteSlide(arrItem[1]);
+                    return false;
+                });
+            });
+        }
+
+        //-------------------------------- SLIDER HOME --------------------------------
+        function fntExecuteSlide(side) {
+            let parentTarget = document.getElementById('slider');
+            let elements = parentTarget.getElementsByTagName('li');
+            let curElement,
+                nextElement;
+            for (var i = 0; i < elements.length; i++) {
+                if (elements[i].style.opacity == 1) {
+                    curElement = i;
+                    break;
+                }
+            }
+            if (side == 'prev' || side == 'next') {
+                if (side == "prev") {
+                    nextElement = (curElement == 0) ? elements.length - 1 : curElement - 1;
+                } else {
+                    nextElement = (curElement == elements.length - 1) ? 0 : curElement + 1;
+                }
+            } else {
+                nextElement = side;
+                side = (curElement > nextElement) ? 'prev' : 'next';
+            }
+            //RESALTA LOS PUNTOS
+            let elementSel = document.getElementsByClassName("listslider")[0].getElementsByTagName("a");
+            elementSel[curElement].classList.remove("item-select-slid");
+            elementSel[nextElement].classList.add("item-select-slid");
+            elements[curElement].style.opacity = 0;
+            elements[curElement].style.zIndex = 0;
+            elements[nextElement].style.opacity = 1;
+            elements[nextElement].style.zIndex = 1;
+        }
+    </script>
+
+    <section class="logo">
+        <img src="Imagenes/logo.png" width="250" height="230" alt="" />
+    </section>
+    <nav>
+        <nav class="navMenu">
+            <a href="error404.html">Visita</a>
+            <a href="error404.html">cita</a>
+            <a href="dona.html">Dona</a>
+            <a href="adopta.html">Adopta</a>
+            <a href="adopta.html">Apadrina</a>
+            <div class="dot"></div>
+        </nav>
+    </nav>
+
+    <section class="carrusel2">
+        <div class="overlay">
+            <h1>HUELLAS DE ESPERANZA</h1>
+            <h3>Somos una pequeña fundacion local en crecimiento</h3>
+            <p>Dando lo mejor de nostros para </p>
+            <br>
+            <button>¿Quieres saber mas?</button>
+        </div>
+    </section>
+
+    <section>
+
+        <div>
+            <img class="imgcont" src="Imagenes/contenido 1.jpg" width="500" height="400" alt="" />
+            <img class="text" src="Imagenes/texto.png" width="500" height="400" alt="" />
+
+        </div>
+
+        <div>
+
+            <img class="text" src="Imagenes/texto2.png" width="500" height="400" alt="" />
+
+        </div>
+        <div>
+            <img class="imgcont" src="Imagenes/contenido 3.jpg" width="500" height="400" alt="" />
+
+        </div>
+
+        <div>
+            <img class="text" src="Imagenes/texro3.png" width="500" height="400" alt="" />
+
+        </div>
+        <div>
+            <img class="imgcont" src="Imagenes/contenido 4.jpg" width="500" height="400" alt="" />
+
+        </div>
+    </section>
+
+    <section>
+        <details class="preguntas">
+            <summary>¿Qué Hacemos?</summary>
+
+            <p>Rescate y Rehabilitación: Rescatamos perros en situación de abandono o maltrato y les proporcionamos atención médica y emocional para su recuperación.</p>
+            <p> Adopciones Responsables: Encontramos hogares amorosos y responsables para nuestros perros, asegurando que sean bien cuidados y amados de por vida.</p>
+            <p>Campañas de Esterilización: Promovemos la esterilización para controlar la población canina y reducir el sufrimiento de perros sin hogar.</p>
+        </details>
+        <details class="preguntas2">
+            <summary>Logros y Estadísticas</summary>
+
+            <p> Número de perros rescatados y reubicados en hogares felices. 123 </p>
+            <p> Programas de adopción exitosos y testimonios de familias adoptantes. 57</p>
+            <p>Nuestro impacto en la comunidad local y los resultados de las campañas de esterilización. 88% </p>
+        </details>
+        <details class="preguntas2">
+            <summary>¡Únete a Nuestro Equipo!</summary>
+            <p>Como fundación, nuestro trabajo es posible gracias a la ayuda de generosos voluntarios y donantes. ¡Únete a nosotros y marca la diferencia en la vida de estos maravillosos seres!</p>
+        </details>
+        <details class="preguntas2">
+            <summary>Formas de Colaborar</summary>
+            <p>Voluntariado: Ayuda en los rescates, cuidado de los perros y eventos de adopción.</p>
+            <p>Donaciones: Contribuye con alimentos, suministros médicos o realiza donaciones económicas.</p>
+            <p>Adopción: Considera darle un hogar amoroso a uno de nuestros adorables perros.</p>
+        </details>
+        <details class="preguntas2">
+            <summary>Próximos Eventos</summary>
+            <p>Informa sobre eventos futuros, como campañas de adopción, ferias de mascotas, recaudaciones de fondos, programas de esterilización y programas de concientización.</p>
+        </details>
+        <details class="preguntas2">
+            <summary>Gracias por Ayudarnos a Hacer la Diferencia</summary>
+            <p>En nombre de toda la Fundación de Perros huellas de esperanza, queremos expresar nuestro más sincero agradecimiento por su apoyo y colaboración incondicional. Gracias a su generosidad y compromiso, hemos podido hacer una diferencia significativa
+                en la vida de muchos perros en situación de abandono y maltrato. Su contribución nos ha permitido rescatar, cuidar, rehabilitar y encontrar hogares amorosos para estos fieles compañeros peludos. Cada día, trabajamos incansablemente para
+                mejorar el bienestar de los perros y promover el cuidado responsable de las mascotas. Su apoyo nos impulsa a seguir adelante y nos da la fuerza para continuar con nuestra misión. No podríamos lograrlo sin ustedes. Cada donación, cada voluntario
+                y cada palabra de aliento son un gran respaldo para nuestra causa. Juntos, hemos construido una comunidad de amor y compasión hacia nuestros amigos caninos. Nuestro compromiso con los perros y la protección de su bienestar es más fuerte
+                que nunca, y sabemos que podemos contar con personas como ustedes para seguir salvando vidas. Nuevamente, gracias por formar parte de esta hermosa misión. Su apoyo es un regalo que jamás olvidaremos y que inspira nuestro trabajo cada día.
+                Con gratitud y cariño,</p>
+        </details>
+    </section>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12 col-md-6">
+                    <h6>About</h6>
+                    <p class="text-justify">Scanfcode.com <i>CODE WANTS TO BE SIMPLE </i> is an initiative to help the upcoming programmers with the code. Scanfcode focuses on providing the most efficient code or snippets as the code wants to be simple. We will help programmers
+                        build up concepts in different programming languages that include C, C++, Java, HTML, CSS, Bootstrap, JavaScript, PHP, Android, SQL and Algorithm.</p>
+                </div>
+
+
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-8 col-sm-6 col-xs-12">
+                            <p class="copyright-text">Copyright &copy; 2017 All Rights Reserved by
+                                <a href="#">Scanfcode</a>.
+                            </p>
+                        </div>
+
+                        <div class="col-md-4 col-sm-6 col-xs-12">
+                            <ul class="social-icons">
+                                <li><a class="facebook" href="#"><i class="fa fa-facebook"><img src="Imagenes/facebook.png" width="40" height="40" alt="" /></i></a></li>
+                                <li><a class="twitter" href="#"><i class="fa fa-twitter"><img src="Imagenes/gorjeo.png" width="40" height="40" alt="" /></i></a></li>
+                                <li><a class="dribbble" href="#"><i class="fa fa-dribbble"><img src="Imagenes/instagram (1).png" width="40" height="40" alt="" /></i></a></li>
+                                <li><a class="linkedin" href="#"><i class="fa fa-linkedin"><img src="Imagenes/pinterest.png" width="40" height="40" alt="" /></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+    </footer>
+
+</body>

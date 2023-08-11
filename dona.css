@@ -1,0 +1,235 @@
+/**nav**/
+
+.navMenu {
+    position: absolute;
+    top: 17%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+.navMenu a {
+    color: #126459;
+    text-decoration: none;
+    font-size: 1.2em;
+    text-transform: uppercase;
+    font-weight: 500;
+    display: inline-block;
+    width: 90px;
+    -webkit-transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
+}
+
+.navMenu a:hover {
+    color: #f06e84;
+}
+
+
+/*Logo*/
+
+.logo {
+    margin-left: 220px;
+    margin-top: 30px;
+}
+
+
+/**Carusel**/
+
+.carousel {
+    position: relative;
+    display: flex;
+}
+
+.carousel .slides {
+    position: relative;
+    top: -4em;
+    left: 10em;
+}
+
+.carousel .slides img {
+    position: absolute;
+    width: 450px;
+    height: 450px;
+    opacity: 0;
+    z-index: 9999;
+}
+
+.carousel .slides img.active {
+    opacity: 1;
+}
+
+.carousel .overlays {
+    position: relative;
+    width: 36em;
+    height: 18em;
+}
+
+.carousel .overlays .bar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--bar-color);
+    transform-origin: left;
+}
+
+.carousel .nav-links {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    margin: 0;
+    padding: 0 0 0 6em;
+    list-style-type: none;
+}
+
+.carousel .nav-links .nav-link {
+    font-size: 2rem;
+    font-family: Lora, serif;
+    line-height: 2;
+    text-decoration: none;
+    color: #7f8c8d;
+    transition: 0.3s;
+}
+
+.carousel .nav-links .nav-link:hover {
+    color: #1c1e1f;
+}
+
+.carousel .nav-links .nav-link.active {
+    color: black;
+    pointer-events: none;
+}
+
+.carrusel {
+    margin-top: 100px;
+    margin-left: 200px;
+}
+
+
+/**Tutulo**/
+
+h1 {
+    color: rgb(110, 238, 106);
+    margin-top: 170px;
+    margin-left: 400px;
+    font-size: 60px;
+}
+
+.container {
+    display: flex;
+    width: 100%;
+    padding: 4% 2%;
+    box-sizing: border-box;
+    height: 100vh;
+}
+
+.box {
+    flex: 1;
+    overflow: hidden;
+    transition: .5s;
+    margin: 0 2%;
+    box-shadow: 0 20px 30px rgba(0, 0, 0, .1);
+    line-height: 0;
+}
+
+.box>img {
+    width: 100%;
+    height: calc(100% - 10vh);
+    object-fit: cover;
+    transition: .5s;
+}
+
+.box>span {
+    font-size: 3.8vh;
+    display: block;
+    text-align: center;
+    height: 10vh;
+    line-height: 2.6;
+}
+
+.box:hover {
+    flex: 1 1 50%;
+}
+
+.box:hover>img {
+    width: 100%;
+    height: 100%;
+}
+
+h2 {
+    margin-left: 50px;
+    color: rgb(110, 238, 106);
+    font-size: 30px;
+}
+
+
+/**Botones de donacion**/
+
+.button-cover {
+    position: relative;
+    overflow: hidden;
+    border: 1px solid #18181a;
+    color: #18181a;
+    display: inline-block;
+    font-size: 15px;
+    line-height: 15px;
+    padding: 18px 18px 17px;
+    text-decoration: none;
+    cursor: pointer;
+    background: #fff;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+}
+
+.button-cover span:first-child {
+    position: relative;
+    transition: color 600ms cubic-bezier(0.48, 0, 0.12, 1);
+    z-index: 10;
+}
+
+.button-cover span:last-child {
+    color: white;
+    display: block;
+    position: absolute;
+    bottom: 0;
+    transition: all 500ms cubic-bezier(0.48, 0, 0.12, 1);
+    z-index: 100;
+    opacity: 0;
+    top: 50%;
+    left: 50%;
+    transform: translateY(225%) translateX(-50%);
+    height: 14px;
+    line-height: 13px;
+}
+
+.button-cover:after {
+    content: "";
+    position: absolute;
+    bottom: -50%;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    transform-origin: bottom center;
+    transition: transform 600ms cubic-bezier(0.48, 0, 0.12, 1);
+    transform: skewY(9.3deg) scaleY(0);
+    z-index: 50;
+}
+
+.button-cover:hover:after {
+    transform-origin: bottom center;
+    transform: skewY(9.3deg) scaleY(2);
+}
+
+.button-cover:hover span:last-child {
+    transform: translateX(-50%) translateY(-100%);
+    opacity: 1;
+    transition: all 900ms cubic-bezier(0.48, 0, 0.12, 1);
+}
+
+.donar {
+    margin-left: 150px;
+}
